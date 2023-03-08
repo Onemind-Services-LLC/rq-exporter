@@ -79,7 +79,7 @@ You can also find the [JSON file of the dashboard](https://github.com/mdawar/rq-
 **RQ metrics:**
 
 | Metric Name                     | Type    | Labels                    | Description                             |
-| ------------------------------- | ------- | ------------------------- | --------------------------------------- |
+|---------------------------------|---------|---------------------------|-----------------------------------------|
 | `rq_workers`                    | Gauge   | `name`, `queues`, `state` | RQ workers                              |
 | `rq_jobs`                       | Gauge   | `queue`, `status`         | RQ jobs by queue and status             |
 | `rq_workers_success_total`      | Counter | `name`, `queues`          | Successful job count by worker          |
@@ -89,7 +89,7 @@ You can also find the [JSON file of the dashboard](https://github.com/mdawar/rq-
 **Request processing metrics:**
 
 | Metric Name                             | Type    | Description                                  |
-| --------------------------------------- | ------- | -------------------------------------------- |
+|-----------------------------------------|---------|----------------------------------------------|
 | `rq_request_processing_seconds_count`   | Summary | Number of times the RQ data were collected   |
 | `rq_request_processing_seconds_sum`     | Summary | Total sum of time spent collecting RQ data   |
 | `rq_request_processing_seconds_created` | Gauge   | Time created at (`time.time()` return value) |
@@ -122,7 +122,7 @@ rq_jobs{queue="default", status="scheduled"} 2.0
 You can configure the exporter using command line arguments or environment variables:
 
 | CLI Argument        | Env Variable              | Default Value                                           | Description                                                     |
-| ------------------- | ------------------------- | ------------------------------------------------------- | --------------------------------------------------------------- |
+|---------------------|---------------------------|---------------------------------------------------------|-----------------------------------------------------------------|
 | `--host`            | `RQ_EXPORTER_HOST`        | `0.0.0.0`                                               | Serve the exporter on this host                                 |
 | `-p`, `--port`      | `RQ_EXPORTER_PORT`        | `9726`                                                  | Serve the exporter on this port                                 |
 | `--redis-url`       | `RQ_REDIS_URL`            | `None`                                                  | Redis URL in the form `redis://:[password]@[host]:[port]/[db]`  |

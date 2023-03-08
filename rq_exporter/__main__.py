@@ -58,7 +58,7 @@ def parse_args():
     parser.add_argument(
         '-p', '--port',
         dest='port',
-        type=int,
+        type=str,
         default=config.PORT,
         metavar='PORT',
         required=False,
