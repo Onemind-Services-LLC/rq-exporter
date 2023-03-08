@@ -7,14 +7,13 @@ Register the RQ collector and create the WSGI application instance.
 
 import logging
 
-from rq.utils import import_attribute
 from prometheus_client import make_wsgi_app
 from prometheus_client.core import REGISTRY
+from rq.utils import import_attribute
 
+from . import config
 from .collector import RQCollector
 from .utils import get_redis_connection
-from . import config
-
 
 logger = logging.getLogger(__name__)
 
@@ -39,23 +38,23 @@ def create_app():
 
     """
     logging.basicConfig(
-        format = config.LOG_FORMAT,
-        datefmt = config.LOG_DATEFMT,
-        level = config.LOG_LEVEL
+        format=config.LOG_FORMAT,
+        datefmt=config.LOG_DATEFMT,
+        level=config.LOG_LEVEL
     )
 
     logger.debug('Registering the RQ collector...')
 
     connection = get_redis_connection(
-        url = config.REDIS_URL,
-        host = config.REDIS_HOST,
-        port = config.REDIS_PORT,
-        db = config.REDIS_DB,
+        url=config.REDIS_URL,
+        host=config.REDIS_HOST,
+        port=config.REDIS_PORT,
+        db=config.REDIS_DB,
         sentinel=config.REDIS_SENTINEL_HOST,
         sentinel_port=config.REDIS_SENTINEL_PORT,
         sentinel_master=config.REDIS_SENTINEL_MASTER,
-        password = config.REDIS_PASS,
-        password_file = config.REDIS_PASS_FILE
+        password=config.REDIS_PASS,
+        password_file=config.REDIS_PASS_FILE
     )
 
     worker_class = import_attribute(config.RQ_WORKER_CLASS)

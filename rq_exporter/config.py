@@ -4,8 +4,8 @@ RQ exporter configuration.
 """
 
 import os
-from rq.defaults import DEFAULT_QUEUE_CLASS, DEFAULT_WORKER_CLASS
 
+from rq.defaults import DEFAULT_QUEUE_CLASS, DEFAULT_WORKER_CLASS
 
 # Defaults
 DEFAULT_HOST = '0.0.0.0'
